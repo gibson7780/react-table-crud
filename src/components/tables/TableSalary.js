@@ -68,7 +68,7 @@ const TableSalary = ({ tableData, setRecordData, errors, saveTrigger }) => {
                   name="Salary"
                   rangeMin={0}
                   rangeMax={100000}
-                  step={500}
+                  step={1000}
                   value={row.Salary}
                   handleChangeVaule={handleChangeVaule}
                   id={row.ID}
