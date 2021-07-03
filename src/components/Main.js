@@ -21,11 +21,15 @@ const Main = () => {
   const getRecords = () => {
     setRecordData(null);
     fetchData('/api/Record/GetRecords').then((res) => {
-      const newData = res?.Data.map((row, index) => ({
-        ...row,
-        ID: 'row' + index,
-      }));
-      setRecordData(newData);
+      if (res.Success) {
+        const newData = res?.Data.map((row, index) => ({
+          ...row,
+          ID: 'row' + index,
+        }));
+        setRecordData(newData);
+      } else {
+        openDialog({ text: '更新失敗!' });
+      }
     });
   };
   // 增加新欄位
