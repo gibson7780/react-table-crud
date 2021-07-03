@@ -1,0 +1,23 @@
+table
+  width: 100%
+  border-collapse: collapse
+  tr
+    transition: 0.3s
+    &.error
+      background: #fffed6 !important
+  tbody
+    tr
+      &:hover
+        background: #f9f9f9
+        box-shadow: 0 0 4px 0 #999
+      
+      td:nth-child(0)
+        width: 200px
+  td,th
+    width: 150px
+    max-width: 150px
+    text-align: left
+    border-bottom: 1px solid #ccc
+    padding: 20px
+    color: #555
+

@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import './App.sass';
+import React, { useState } from 'react';
+import Context from './components/useContext/Context';
+import Main from './components/Main';
+import AlertDialog from './components/dialogs/AlertDialog';
 function App() {
+  const [showDialog, setShowDialog] = useState(false);
+  const [option, setOption] = useState({});
+  const closeDialog = () => {
+    setShowDialog(false);
+  };
+  const openDialog = (props) => {
+    setOption(props);
+    setShowDialog(true);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider value={{ closeDialog, openDialog, option }}>
+      <div className="myApp">
+        {showDialog && <AlertDialog />}
+
+        <Main />
+      </div>
+    </Context.Provider>
   );
 }
 
