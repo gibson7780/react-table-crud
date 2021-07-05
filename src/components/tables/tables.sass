@@ -21,3 +21,19 @@ table
     padding: 20px
     color: #555
 
+.tableAnimation-enter 
+  opacity: 0.01
+
+
+.tableAnimation-enter.tableAnimation-enter-active 
+  opacity: 1
+  transition: opacity 500ms ease-in
+
+
+.tableAnimation-leave 
+  opacity: 1
+
+
+.tableAnimation-leave.tableAnimation-leave-active 
+  opacity: 0.01
+  transition: opacity 100ms ease-in
